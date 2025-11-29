@@ -3,13 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Inventaris Usaha - Daftar Barang</title>
+    <title>Inventa - Daftar Barang</title>
     <script src="https://cdn.tailwindcss.com"></script>
 </head>
 <body class="bg-gray-50 font-sans leading-normal tracking-normal">
 
     <div class="container mx-auto p-8">
-        <h1 class="text-3xl font-bold text-gray-800 mb-6">📦 Stok Gudang</h1>
+        <div class="flex justify-between items-center mb-6">
+            <h1 class="text-3xl font-bold text-gray-800">📦 Stok Gudang</h1>
+            
+            <a href="{{ route('products.create') }}" class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded shadow transition duration-300">
+                + Tambah Barang
+            </a>
+        </div>
 
         <div class="bg-white shadow-md rounded my-6 overflow-hidden">
             <table class="min-w-full w-full table-auto">
