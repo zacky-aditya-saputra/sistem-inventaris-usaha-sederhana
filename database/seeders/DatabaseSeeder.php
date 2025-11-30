@@ -20,19 +20,39 @@ class DatabaseSeeder extends Seeder
         ]);
 
         // 2. Buat Kategori
+        // ... kode atas tetap sama ...
+
+        // 2. Buat Kategori (INI YANG DIUBAH)
+        
+        // A. Elektronik (Tetap)
         $catElektronik = Category::create([
             'name' => 'Elektronik',
             'slug' => 'elektronik'
         ]);
         
-        $catPakaian = Category::create([
-            'name' => 'Pakaian',
-            'slug' => 'pakaian'
+        // B. Pakaian -> Ganti jadi MEBEL
+        $catMebel = Category::create([
+            'name' => 'Mebel',
+            'slug' => 'mebel'
         ]);
 
-        $catMakanan = Category::create([
-            'name' => 'Makanan & Minuman',
-            'slug' => 'makanan-minuman'
+        // C. Makanan -> Ganti jadi RUMAH TANGGA
+        $catRumahTangga = Category::create([
+            'name' => 'Rumah Tangga',
+            'slug' => 'rumah-tangga'
+        ]);
+
+        // ... kode bawah (Produk) juga harus disesuaikan variabelnya ...
+        
+        // Contoh penyesuaian Produk (Opsional, biar dummy datanya nyambung):
+        // Ganti variabel $catPakaian jadi $catMebel
+        Product::create([
+             'category_id' => $catMebel->id, // <-- Ganti ini
+             'name' => 'Kursi Kayu Jati',    // <-- Sesuaikan nama barangnya
+             'sku' => 'MEB-001',
+             'stock' => 20,
+             'price' => 500000,
+             'description' => 'Kursi kokoh'
         ]);
 
         // 3. Buat Produk
@@ -45,13 +65,13 @@ class DatabaseSeeder extends Seeder
             'description' => 'Laptop gaming spek tinggi'
         ]);
 
-        $kaos = Product::create([
-            'category_id' => $catPakaian->id,
-            'name' => 'Kaos Polos Hitam',
-            'sku' => 'KAO-001',
-            'stock' => 50,
-            'price' => 75000,
-            'description' => 'Bahan Combed 30s'
+        $lemari = Product::create([
+            'category_id' => $catMebel->id,
+            'name' => 'lemari Kayu Jati',
+            'sku' => 'LKJ-001',
+            'stock' => 20,
+            'price' => 1250000,
+            'description' => 'kayu jati asli'
         ]);
 
         // 4. Buat Transaksi Awal (Stok Masuk)

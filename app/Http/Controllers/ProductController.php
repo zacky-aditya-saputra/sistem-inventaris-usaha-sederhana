@@ -30,7 +30,7 @@ class ProductController extends Controller
     // --- 3. LOGIKA SIMPAN KE DATABASE (STORE) ---
     public function store(Request $request)
     {
-        // Validasi inputan
+        // Validasi inputan untuk kelengkapan permintaan
         $request->validate([
             'name' => 'required',
             'category_id' => 'required',

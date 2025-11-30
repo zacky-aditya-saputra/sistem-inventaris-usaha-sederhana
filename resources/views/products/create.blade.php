@@ -16,7 +16,7 @@
 
             <div class="mb-4">
                 <label class="block text-gray-700 text-sm font-bold mb-2">Nama Barang</label>
-                <input type="text" name="name" class="w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" placeholder="Contoh: Mouse Logitech" required>
+                <input type="text" name="name" class="w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" placeholder="Contoh: Tumbler Tuku" required>
             </div>
 
             <div class="grid grid-cols-2 gap-4 mb-4">
@@ -31,7 +31,7 @@
                 </div>
                 <div>
                     <label class="block text-gray-700 text-sm font-bold mb-2">Kode Barang (SKU)</label>
-                    <input type="text" name="sku" class="w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" placeholder="Contoh: MOU-001" required>
+                    <input type="text" name="sku" class="w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" placeholder="Contoh: TUM-001" required>
                 </div>
             </div>
 
