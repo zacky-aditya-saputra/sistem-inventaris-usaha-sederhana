@@ -6,7 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 // LIHAT DISINI: Semua 'use' kumpul di paling atas, bukan di tengah
 use App\Models\Product;
-use App\Models\Category; 
+use App\Models\Category;
 
 class ProductController extends Controller
 {
@@ -20,10 +20,9 @@ class ProductController extends Controller
     // --- 2. HALAMAN FORM TAMBAH BARANG (CREATE) ---
     public function create()
     {
-        // Karena 'use App\Models\Category' sudah ada di paling atas,
-        // di sini kita tinggal panggil saja, tidak perlu 'use' lagi.
+
         $categories = Category::all();
-        
+
         return view('products.create', compact('categories'));
     }
 
@@ -43,6 +42,38 @@ class ProductController extends Controller
         Product::create($request->all());
 
         // Balik ke halaman utama
+        return redirect()->route('products.index');
+    }
+
+    // --- 4. TAMPILKAN FORM EDIT ---
+    public function edit(Product $product)
+    {
+        // Ambil kategori buat dropdown
+        $categories = Category::all();
+        // Kirim data produk yang mau diedit ke view
+        return view('products.edit', compact('product', 'categories'));
+    }
+
+    // --- 5. SIMPAN PERUBAHAN (UPDATE) ---
+    public function update(Request $request, Product $product)
+    {
+        $request->validate([
+            'name' => 'required',
+            'category_id' => 'required',
+            'sku' => 'required', // SKU tidak perlu unique saat update diri sendiri
+            'stock' => 'required|integer',
+            'price' => 'required|numeric',
+        ]);
+
+        $product->update($request->all());
+
+        return redirect()->route('products.index');
+    }
+
+    // --- 6. HAPUS BARANG (DESTROY) ---
+    public function destroy(Product $product)
+    {
+        $product->delete();
         return redirect()->route('products.index');
     }
 }
