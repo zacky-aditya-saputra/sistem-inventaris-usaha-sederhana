@@ -28,7 +28,7 @@
         <div class="h-full px-3 py-4 overflow-y-auto bg-neutral-primary-soft border-e border-default">
             
             <div class="flex flex-col items-center justify-center mb-6 mt-4">
-                <img src="logo.png" alt="Logo Inventarus" class="w-3/4 h-auto object-contain">
+                <img src="logoInventarus.png" alt="Logo Inventarus" class="w-3/4 h-auto object-contain">
                 
                 <h1 class="text-2xl font-extrabold text-gray-800 mt-3 tracking-wider uppercase font-sans">
                     INVENTARUS
