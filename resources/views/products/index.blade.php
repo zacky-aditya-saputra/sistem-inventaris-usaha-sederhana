@@ -6,159 +6,211 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Inventaris Usaha - Daftar Barang</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://cdn.jsdelivr.net/npm/flowbite@4.0.1/dist/flowbite.min.css" rel="stylesheet" />
     <script src="https://cdn.tailwindcss.com"></script>
 </head>
 
 <body class="bg-gray-50 font-sans leading-normal tracking-normal">
 
-    <header class="bg-white">
-        <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-            <div class="flex h-16 items-center justify-between">
-                <div class="flex-1 md:flex md:items-center md:gap-12">
-                    <a class="block text-purple-700" href="#">
-                        <span class="sr-only">Home</span>
-                        <svg class="h-8" viewBox="0 0 28 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path
-                                d="M0.41 10.3847C1.14777 7.4194 2.85643 4.7861 5.2639 2.90424C7.6714 1.02234 10.6393 0 13.695 0C16.7507 0 19.7186 1.02234 22.1261 2.90424C24.5336 4.7861 26.2422 7.4194 26.98 10.3847H25.78C23.7557 10.3549 21.7729 10.9599 20.11 12.1147C20.014 12.1842 19.9138 12.2477 19.81 12.3047H19.67C19.5662 12.2477 19.466 12.1842 19.37 12.1147C17.6924 10.9866 15.7166 10.3841 13.695 10.3841C11.6734 10.3841 9.6976 10.9866 8.02 12.1147C7.924 12.1842 7.8238 12.2477 7.72 12.3047H7.58C7.4762 12.2477 7.376 12.1842 7.28 12.1147C5.6171 10.9599 3.6343 10.3549 1.61 10.3847H0.41ZM23.62 16.6547C24.236 16.175 24.9995 15.924 25.78 15.9447H27.39V12.7347H25.78C24.4052 12.7181 23.0619 13.146 21.95 13.9547C21.3243 14.416 20.5674 14.6649 19.79 14.6649C19.0126 14.6649 18.2557 14.416 17.63 13.9547C16.4899 13.1611 15.1341 12.7356 13.745 12.7356C12.3559 12.7356 11.0001 13.1611 9.86 13.9547C9.2343 14.416 8.4774 14.6649 7.7 14.6649C6.9226 14.6649 6.1657 14.416 5.54 13.9547C4.4144 13.1356 3.0518 12.7072 1.66 12.7347H0V15.9447H1.61C2.39051 15.924 3.154 16.175 3.77 16.6547C4.908 17.4489 6.2623 17.8747 7.65 17.8747C9.0377 17.8747 10.392 17.4489 11.53 16.6547C12.1468 16.1765 12.9097 15.9257 13.69 15.9447C14.4708 15.9223 15.2348 16.1735 15.85 16.6547C16.9901 17.4484 18.3459 17.8738 19.735 17.8738C21.1241 17.8738 22.4799 17.4484 23.62 16.6547ZM23.62 22.3947C24.236 21.915 24.9995 21.664 25.78 21.6847H27.39V18.4747H25.78C24.4052 18.4581 23.0619 18.886 21.95 19.6947C21.3243 20.156 20.5674 20.4049 19.79 20.4049C19.0126 20.4049 18.2557 20.156 17.63 19.6947C16.4899 18.9011 15.1341 18.4757 13.745 18.4757C12.3559 18.4757 11.0001 18.9011 9.86 19.6947C9.2343 20.156 8.4774 20.4049 7.7 20.4049C6.9226 20.4049 6.1657 20.156 5.54 19.6947C4.4144 18.8757 3.0518 18.4472 1.66 18.4747H0V21.6847H1.61C2.39051 21.664 3.154 21.915 3.77 22.3947C4.908 23.1889 6.2623 23.6147 7.65 23.6147C9.0377 23.6147 10.392 23.1889 11.53 22.3947C12.1468 21.9165 12.9097 21.6657 13.69 21.6847C14.4708 21.6623 15.2348 21.9135 15.85 22.3947C16.9901 23.1884 18.3459 23.6138 19.735 23.6138C21.1241 23.6138 22.4799 23.1884 23.62 22.3947Z"
-                                fill="currentColor"></path>
+    <button data-drawer-target="default-sidebar" data-drawer-toggle="default-sidebar" aria-controls="default-sidebar"
+        type="button"
+        class="text-heading bg-transparent box-border border border-transparent hover:bg-neutral-secondary-medium focus:ring-4 focus:ring-neutral-tertiary font-medium leading-5 rounded-base ms-3 mt-3 text-sm p-2 focus:outline-none inline-flex sm:hidden">
+        <span class="sr-only">Open sidebar</span>
+        <svg class="w-6 h-6" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+            fill="none" viewBox="0 0 24 24">
+            <path stroke="currentColor" stroke-linecap="round" stroke-width="2" d="M5 7h14M5 12h14M5 17h10" />
+        </svg>
+    </button>
+
+    <aside id="default-sidebar"
+        class="fixed top-0 left-0 z-40 w-64 h-full transition-transform -translate-x-full sm:translate-x-0"
+        aria-label="Sidebar">
+        <div class="h-full px-3 py-4 overflow-y-auto bg-neutral-primary-soft border-e border-default">
+            
+            <div class="flex flex-col items-center justify-center mb-6 mt-4">
+                <img src="logo.png" alt="Logo Inventarus" class="w-3/4 h-auto object-contain">
+                
+                <h1 class="text-2xl font-extrabold text-gray-800 mt-3 tracking-wider uppercase font-sans">
+                    INVENTARUS
+                </h1>
+            </div>
+             <ul class="space-y-2 font-medium">
+                <li>
+                    <a href="#"
+                        class="flex items-center px-2 py-1.5 text-body rounded-base hover:bg-neutral-tertiary hover:text-fg-brand group">
+                        <svg class="w-5 h-5 transition duration-75 group-hover:text-fg-brand" aria-hidden="true"
+                            xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none"
+                            viewBox="0 0 24 24">
+                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M10 6.025A7.5 7.5 0 1 0 17.975 14H10V6.025Z" />
+                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M13.5 3c-.169 0-.334.014-.5.025V11h7.975c.011-.166.025-.331.025-.5A7.5 7.5 0 0 0 13.5 3Z" />
                         </svg>
+                        <span class="ms-3">Dashboard</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#"
+                        class="flex items-center px-2 py-1.5 text-body rounded-base hover:bg-neutral-tertiary hover:text-fg-brand group">
+                        <svg class="shrink-0 w-5 h-5 transition duration-75 group-hover:text-fg-brand"
+                            aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                            fill="none" viewBox="0 0 24 24">
+                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M15 5v14M9 5v14M4 5h16a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1Z" />
+                        </svg>
+                        <span class="flex-1 ms-3 whitespace-nowrap">Kanban</span>
+                        <span
+                            class="bg-neutral-secondary-medium border border-default-medium text-heading text-xs font-medium px-1.5 py-0.5 rounded-sm">Pro</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#"
+                        class="flex items-center px-2 py-1.5 text-body rounded-base hover:bg-neutral-tertiary hover:text-fg-brand group">
+                        <svg class="shrink-0 w-5 h-5 transition duration-75 group-hover:text-fg-brand"
+                            aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                            fill="none" viewBox="0 0 24 24">
+                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M4 13h3.439a.991.991 0 0 1 .908.6 3.978 3.978 0 0 0 7.306 0 .99.99 0 0 1 .908-.6H20M4 13v6a1 1 0 0 0 1 1h14a1 1 0 0 0 1-1v-6M4 13l2-9h12l2 9M9 7h6m-7 3h8" />
+                        </svg>
+                        <span class="flex-1 ms-3 whitespace-nowrap">Inbox</span>
+                        <span
+                            class="inline-flex items-center justify-center w-4.5 h-4.5 ms-2 text-xs font-medium text-fg-danger-strong bg-danger-soft border border-danger-subtle rounded-full">2</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#"
+                        class="flex items-center px-2 py-1.5 text-body rounded-base hover:bg-neutral-tertiary hover:text-fg-brand group">
+                        <svg class="shrink-0 w-5 h-5 transition duration-75 group-hover:text-fg-brand"
+                            aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                            fill="none" viewBox="0 0 24 24">
+                            <path stroke="currentColor" stroke-linecap="round" stroke-width="2"
+                                d="M16 19h4a1 1 0 0 0 1-1v-1a3 3 0 0 0-3-3h-2m-2.236-4a3 3 0 1 0 0-4M3 18v-1a3 3 0 0 1 3-3h4a3 3 0 0 1 3 3v1a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1Zm8-10a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z" />
+                        </svg>
+                        <span class="flex-1 ms-3 whitespace-nowrap">Users</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#"
+                        class="flex items-center px-2 py-1.5 text-body rounded-base hover:bg-neutral-tertiary hover:text-fg-brand group">
+                        <svg class="shrink-0 w-5 h-5 transition duration-75 group-hover:text-fg-brand"
+                            aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                            fill="none" viewBox="0 0 24 24">
+                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                                stroke-width="2"
+                                d="M9 10V6a3 3 0 0 1 3-3v0a3 3 0 0 1 3 3v4m3-2 .917 11.923A1 1 0 0 1 17.92 21H6.08a1 1 0 0 1-.997-1.077L6 8h12Z" />
+                        </svg>
+                        <span class="flex-1 ms-3 whitespace-nowrap">Products</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#"
+                        class="flex items-center px-2 py-1.5 text-body rounded-base hover:bg-neutral-tertiary hover:text-fg-brand group">
+                        <svg class="shrink-0 w-5 h-5 transition duration-75 group-hover:text-fg-brand"
+                            aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                            fill="none" viewBox="0 0 24 24">
+                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                                stroke-width="2"
+                                d="M16 12H4m12 0-4 4m4-4-4-4m3-4h2a3 3 0 0 1 3 3v10a3 3 0 0 1-3 3h-2" />
+                        </svg>
+                        <span class="flex-1 ms-3 whitespace-nowrap">Sign In</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </aside>
+
+    <div class="sm:ml-64">
+
+        <div class="container mx-auto p-8">
+            <div class="flex justify-between items-center mb-6">
+                <h1 class="text-3xl font-bold text-gray-800">📦 Stok Gudang</h1>
+
+                <div class="flex gap-2">
+                    <a href="{{ route('transactions.index') }}"
+                        class="bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-2 px-4 rounded shadow transition duration-300">
+                        📜 Riwayat
+                    </a>
+
+                    <a href="{{ route('categories.index') }}"
+                        class="bg-gray-600 hover:bg-gray-700 text-white font-bold py-2 px-4 rounded shadow transition duration-300">
+                        📂 Kelola Kategori
+                    </a>
+
+                    <a href="{{ route('transactions.create') }}"
+                        class="bg-green-600 hover:bg-green-700 text-white font-bold py-2 px-4 rounded shadow transition duration-300">
+                        🔄 Catat Transaksi
+                    </a>
+
+                    <a href="{{ route('products.create') }}"
+                        class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded shadow transition duration-300">
+                        + Tambah Barang
                     </a>
                 </div>
-
-                <div class="md:flex md:items-center md:gap-12">
-                    <nav aria-label="Global" class="hidden md:block">
-                        <ul class="flex items-center gap-6 text-sm">
-                            <li>
-                                <a class="text-gray-500 transition hover:text-gray-500/75" href="#"> Dashboard
-                                </a>
-                            </li>
-
-                            <li>
-                                <a class="text-gray-500 transition hover:text-gray-500/75" href="#"> Stok Gudang
-                                </a>
-                            </li>
-
-                            <li>
-                                <a class="text-gray-500 transition hover:text-gray-500/75" href="#"> Halaman 3
-                                </a>
-                            </li>
-
-                            <li>
-                                <a class="text-gray-500 transition hover:text-gray-500/75" href="#"> Halaman 5
-                                </a>
-                            </li>
-
-                        </ul>
-                    </nav>
-
-                    <div class="flex items-center gap-4">
-                        <div class="sm:flex sm:gap-4">
-                            <a class="rounded-md bg-purple-700 px-5 py-2.5 text-sm font-medium text-white shadow-sm"
-                                href="#">
-                                Login
-                            </a>
-
-                            <div class="hidden sm:flex">
-                                <a class="rounded-md bg-gray-100 px-5 py-2.5 text-sm font-medium text-purple-700"
-                                    href="#">
-                                    Register
-                                </a>
-                            </div>
-                        </div>
-
-                        <div class="block md:hidden">
-                            <button class="rounded-sm bg-gray-100 p-2 text-gray-600 transition hover:text-gray-600/75">
-                                <svg xmlns="http://www.w3.org/2000/svg" class="size-5" fill="none"
-                                    viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                                    <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16">
-                                    </path>
-                                </svg>
-                            </button>
-                        </div>
-                    </div>
-                </div>
             </div>
-        </div>
-    </header>
 
+            <div class="bg-white shadow-md rounded my-6 overflow-hidden">
+                <table class="min-w-full w-full table-auto">
+                    <thead>
+                        <tr class="bg-gray-200 text-gray-600 uppercase text-sm leading-normal">
+                            <th class="py-3 px-6 text-left">Nama Barang</th>
+                            <th class="py-3 px-6 text-left">Kategori</th>
+                            <th class="py-3 px-6 text-center">Di Gudang</th>
+                            <th class="py-3 px-6 text-center">Dipinjam</th>
+                            <th class="py-3 px-6 text-center font-bold">Total Aset</th>
 
-    <div class="container mx-auto p-8">
-        <div class="flex justify-between items-center mb-6">
-            <h1 class="text-3xl font-bold text-gray-800">📦 Stok Gudang</h1>
-
-            <div class="flex gap-2">
-                <a href="{{ route('categories.index') }}"
-                    class="bg-gray-600 hover:bg-gray-700 text-white font-bold py-2 px-4 rounded shadow transition duration-300">
-                    📂 Kelola Kategori
-                </a>
-
-                <a href="{{ route('transactions.create') }}"
-                    class="bg-green-600 hover:bg-green-700 text-white font-bold py-2 px-4 rounded shadow transition duration-300">
-                    🔄 Catat Transaksi
-                </a>
-
-                <a href="{{ route('products.create') }}"
-                    class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded shadow transition duration-300">
-                    + Tambah Barang
-                </a>
-            </div>
-        </div>
-
-        <div class="bg-white shadow-md rounded my-6 overflow-hidden">
-            <table class="min-w-full w-full table-auto">
-                <thead>
-                    <tr class="bg-purple-700 text-white uppercase text-sm leading-normal">
-                        <th class="py-3 px-6 text-left">Nama Barang</th>
-                        <th class="py-3 px-6 text-left">Kategori</th>
-                        <th class="py-3 px-6 text-center">Stok</th>
-                        <th class="py-3 px-6 text-right">Harga</th>
-                        <th class="py-3 px-6 text-center">Edit</th>
-                    </tr>
-                </thead>
-                <tbody class="text-gray-600 text-sm font-light">
-                    @foreach ($products as $product)
-                        <tr class="border-b border-gray-200 hover:bg-gray-100">
-                            <td class="py-3 px-6 text-left whitespace-nowrap font-medium">
-                                {{ $product->name }}
-                                <div class="text-xs text-gray-400">{{ $product->sku }}</div>
-                            </td>
-                            <td class="py-3 px-6 text-left">
-                                <span class="bg-blue-200 text-blue-700 py-1 px-3 rounded-full text-xs">
-                                    {{ $product->category->name }}
-                                </span>
-                            </td>
-                            <td class="py-3 px-6 text-center">
-                                <span class="{{ $product->stock < 5 ? 'text-red-500 font-bold' : 'text-green-600' }}">
-                                    {{ $product->stock }} Unit
-                                </span>
-                            </td>
-                            <td class="py-3 px-6 text-right">
-                                Rp {{ number_format($product->price, 0, ',', '.') }}
-                            <td class="py-3 px-6 text-center">
-                                <div class="flex item-center justify-center">
-                                    <a href="{{ route('products.edit', $product->id) }}"
-                                        class="w-4 mr-2 transform hover:text-purple-500 hover:scale-110">
-                                        ✏️
-                                    </a>
-
-                                    <form action="{{ route('products.destroy', $product->id) }}" method="POST"
-                                        onsubmit="return confirm('Yakin mau hapus barang ini?');">
-                                        @csrf
-                                        @method('DELETE')
-                                        <button type="submit" class="w-4 transform hover:text-red-500 hover:scale-110">
-                                            🗑️
-                                        </button>
-                                    </form>
-                                </div>
-                            </td>
-                            </td>
+                            <th class="py-3 px-6 text-center">Aksi</th>
                         </tr>
-                    @endforeach
-                </tbody>
-            </table>
-        </div>
-    </div>
+                    </thead>
+                    <tbody class="text-gray-600 text-sm font-light">
+                        @foreach ($products as $product)
+                            <tr class="border-b border-gray-200 hover:bg-gray-100">
+                                <td class="py-3 px-6 text-left whitespace-nowrap font-medium">
+                                    {{ $product->name }}
+                                    <div class="text-xs text-gray-400">{{ $product->sku }}</div>
+                                </td>
+                                <td class="py-3 px-6 text-left">
+                                    <span class="bg-blue-200 text-blue-700 py-1 px-3 rounded-full text-xs">
+                                        {{ $product->category->name }}
+                                    </span>
+                                </td>
 
+                                <td class="py-3 px-6 text-center">
+                                    <span class="text-green-600 font-bold bg-green-100 py-1 px-3 rounded-full">
+                                        {{ $product->stock }}
+                                    </span>
+                                </td>
+
+                                <td class="py-3 px-6 text-center">
+                                    <span class="text-yellow-600 font-bold bg-yellow-100 py-1 px-3 rounded-full">
+                                        {{ $product->borrowed }}
+                                    </span>
+                                </td>
+
+                                <td class="py-3 px-6 text-center font-bold">
+                                    {{ $product->stock + $product->borrowed }} Unit
+                                </td>
+
+                                <td class="py-3 px-6 text-center">
+                                    <div class="flex item-center justify-center">
+                                        <a href="{{ route('products.edit', $product->id) }}"
+                                            class="w-4 mr-2 transform hover:text-purple-500 hover:scale-110">✏️</a>
+                                        <form action="{{ route('products.destroy', $product->id) }}" method="POST"
+                                            onsubmit="return confirm('Yakin hapus?');">
+                                            @csrf @method('DELETE')
+                                            <button type="submit"
+                                                class="w-4 transform hover:text-red-500 hover:scale-110">🗑️</button>
+                                        </form>
+                                    </div>
+                                </td>
+                            </tr>
+                        @endforeach
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/flowbite@4.0.1/dist/flowbite.min.js"></script>
 </body>
 
 </html>

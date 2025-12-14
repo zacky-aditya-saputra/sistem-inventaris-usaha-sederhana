@@ -9,47 +9,67 @@ use App\Models\Product;
 
 class TransactionController extends Controller
 {
-    // 1. Tampilkan Form Transaksi
+
+    // --- HALAMAN RIWAYAT TRANSAKSI ---
+    public function index()
+    {
+        // Ambil data transaksi, urutkan dari yang terbaru
+        // 'with' digunakan agar nama produk ikut terbawa
+        $transactions = Transaction::with('product')->latest()->get();
+        
+        return view('transactions.index', compact('transactions'));
+    }
+    // Tampilkan Form Transaksi
     public function create()
     {
         $products = Product::all(); // Ambil semua barang buat dipilih
         return view('transactions.create', compact('products'));
     }
 
-    // 2. Simpan Transaksi & Update Stok Otomatis
+    // Simpan Transaksi & Update Stok Otomatis
     public function store(Request $request)
     {
-        $request->validate([
-            'product_id' => 'required',
-            'type' => 'required|in:in,out', // Hanya boleh 'in' atau 'out'
-            'quantity' => 'required|integer|min:1',
-            'transaction_date' => 'required|date',
-        ]);
-
-        // Cek dulu barangnya ada nggak?
+        // Cek produk
         $product = Product::findOrFail($request->product_id);
 
-        // LOGIKA PENTING: Cek stok cukup nggak kalau barang keluar?
-        if ($request->type == 'out' && $product->stock < $request->quantity) {
-            // Kalau stok kurang, balikin error
-            return back()->withErrors(['quantity' => 'Stok barang tidak cukup! Stok saat ini: ' . $product->stock]);
+        // --- VALIDASI STOK ---
+        // Jika mau pinjam, pastikan stok di gudang ada
+        if ($request->type == 'loan' && $product->stock < $request->quantity) {
+            return back()->withErrors(['quantity' => 'Stok di gudang tidak cukup untuk dipinjam!']);
+        }
+        // Jika mau kembali, pastikan memang ada yang sedang dipinjam
+        if ($request->type == 'return' && $product->borrowed < $request->quantity) {
+            return back()->withErrors(['quantity' => 'Jumlah pengembalian melebihi data barang yang dipinjam!']);
         }
 
-        // A. Simpan data ke tabel transactions (Riwayat)
+        // --- SIMPAN TRANSAKSI ---
         Transaction::create([
-            'user_id' => 1, // Kita set ID 1 dulu (Admin) karena belum bikin Login
+            'user_id' => 1,
             'product_id' => $request->product_id,
-            'type' => $request->type,
+            'type' => $request->type, // loan, return, restock, sold
             'quantity' => $request->quantity,
+            'recipient' => $request->recipient,
+            'location' => $request->location,
             'transaction_date' => $request->transaction_date,
             'notes' => $request->notes
         ]);
 
-        // B. Update stok di tabel products (Otomatis)
-        if ($request->type == 'in') {
-            $product->increment('stock', $request->quantity); // Tambah Stok
-        } else {
-            $product->decrement('stock', $request->quantity); // Kurang Stok
+        // --- UPDATE STOK (LOGIKA PINDAH) ---
+        if ($request->type == 'loan') {
+            // PINJAM: Pindah dari Gudang ke Kolom Borrowed
+            $product->decrement('stock', $request->quantity);    // Gudang Berkurang
+            $product->increment('borrowed', $request->quantity); // Angka "Dipinjam" Bertambah
+            // TOTAL ASET TETAP SAMA
+        } elseif ($request->type == 'return') {
+            // KEMBALI: Pindah dari Kolom Borrowed ke Gudang
+            $product->increment('stock', $request->quantity);    // Gudang Bertambah
+            $product->decrement('borrowed', $request->quantity); // Angka "Dipinjam" Berkurang
+        } elseif ($request->type == 'restock') {
+            // BELI BARU: Aset Bertambah Murni
+            $product->increment('stock', $request->quantity);
+        } elseif ($request->type == 'sold') {
+            // RUSAK/HILANG: Aset Berkurang Murni
+            $product->decrement('stock', $request->quantity);
         }
 
         return redirect()->route('products.index');

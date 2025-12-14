@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->foreignId('user_id')->constrained()->onDelete('cascade');
             $table->foreignId('product_id')->constrained()->onDelete('cascade');
-            $table->enum('type', ['in', 'out']);
+            $table->string('type');
             $table->integer('quantity');
             $table->decimal('total_price', 15, 2)->nullable();
             $table->date('transaction_date');

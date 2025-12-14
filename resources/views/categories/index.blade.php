@@ -9,7 +9,7 @@
 <body class="bg-gray-100 font-sans p-8">
     <div class="max-w-4xl mx-auto">
         <div class="flex justify-between items-center mb-6">
-            <h1 class="text-3xl font-bold text-gray-800">📂 Kelola Kategori</h1>
+            <h1 class="text-3xl font-bold text-gray-800">📂 Kategori</h1>
             <div class="flex gap-2">
                 <a href="{{ route('products.index') }}" class="bg-gray-500 hover:bg-gray-600 text-white font-bold py-2 px-4 rounded">
                     ⬅ Kembali ke Produk

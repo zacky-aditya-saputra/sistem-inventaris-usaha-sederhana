@@ -11,12 +11,14 @@ class Transaction extends Model
 
     // 1. Daftar kolom yang boleh diisi (Wajib ada agar data bisa disimpan)
     protected $fillable = [
-        'user_id', 
-        'product_id', 
-        'type',             // 'in' (barang masuk) atau 'out' (barang keluar)
-        'quantity',         // Jumlah barang
-        'total_price', 
-        'transaction_date', 
+        'user_id',
+        'product_id',
+        'type',             
+        'quantity',
+        'recipient',
+        'location',
+        'total_price',
+        'transaction_date',
         'notes'
     ];
 

@@ -10,11 +10,18 @@ class Product extends Model
     use HasFactory;
 
     protected $fillable = [
-        'category_id', 'name', 'sku', 'stock', 
-        'price', 'image', 'description'
+        'category_id',
+        'name',
+        'sku',
+        'stock',      // Ini stok di gudang
+        'borrowed',   // Ini stok di peminjam
+        'price',
+        'image',
+        'description',
+        'purchase_date'
     ];
 
-    // --- BAGIAN INI YANG HILANG/ERROR DI TEMPATMU ---
+   
     public function category()
     {
         return $this->belongsTo(Category::class);
