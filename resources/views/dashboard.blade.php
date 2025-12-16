@@ -106,10 +106,10 @@
             <div class="mb-8">
                 <div class="flex justify-between items-end">
                     <div>
-                        <h2 class="text-3xl font-bold text-gray-800">📊 Dashboard</h2>
+                        <h2 class="text-4xl font-bold text-gray-800">Dashboard</h2>
                         <p class="text-gray-600 mt-1">
                             Selamat Datang, 
-                            <span class="font-bold text-indigo-600 text-lg">
+                            <span class="font-bold text-purple-600 text-lg">
                                 {{ Auth::user()->name ?? 'Tamu' }}
                             </span> 👋
                         </p>
@@ -119,7 +119,7 @@
                     </div>
                 </div>
                 
-                <div class="mt-4 p-4 bg-blue-50 border-l-4 border-blue-500 text-blue-900 rounded-r shadow-sm">
+                <div class="mt-4 p-4 bg-purple-50 border-l-4 border-purple-500 text-purple-900 rounded-r shadow-sm">
                     <p class="text-sm leading-relaxed">
                         Terima kasih telah menggunakan <strong>Inventarus</strong> :) Halaman ini (Dashboard) menyajikan ringkasan statistik dan status terkini aset yang Anda miliki. Silakan klik menu di <strong>Sidebar kiri</strong> untuk mengelola Stok Gudang, mengatur Kategori, atau memantau Riwayat Transaksi secara <em>real-time</em>.
                     </p>
@@ -170,6 +170,19 @@
                     </div>
                 </div>
             </div>
+
+            <div class="flex gap-2 mb-6">
+
+                    <a href="{{ route('transactions.create') }}"
+                        class="flex items-center py-2 px-4 bg-purple-600 hover:bg-purple-700 transition delay-150 duration-300 ease-in-out text-white rounded-xl group">
+                        <span class="font-bold">Catat Transaksi</span>
+                    </a>
+
+                    <a href="{{ route('products.create') }}"
+                        class="flex items-center py-2 px-4 bg-purple-600 hover:bg-purple-700 text-white rounded-xl group">
+                        <span class="font-bold">Tambah Barang</span>
+                    </a>
+                </div>
 
             <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
                 

@@ -1,8 +1,8 @@
 # 📦 INVENTARUS - Sistem Inventaris Usaha (Multi-User)
 
-![Laravel](https://img.shields.io/badge/Laravel-FF2D20?style=for-the-badge&logo=laravel&logoColor=white)
-![TailwindCSS](https://img.shields.io/badge/Tailwind_CSS-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white)
-![SQLite](https://img.shields.io/badge/SQLite-07405E?style=for-the-badge&logo=sqlite&logoColor=white)
+![Laravel](https://laravel.com/)
+![TailwindCSS](https://tailwindcss.com/)
+![SQLite](https://sqlite.org/)
 
 **Inventarus** adalah aplikasi berbasis web untuk manajemen stok barang yang dirancang dengan arsitektur **Multi-Tenant (SaaS-lite)**. Aplikasi ini memungkinkan banyak pengguna (usaha) untuk mendaftar dan mengelola gudang mereka masing-masing secara terisolasi dalam satu sistem database yang sama.
 
