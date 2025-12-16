@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Transaction;
 use App\Models\Product;
+use Illuminate\Support\Facades\Auth;
 
 class TransactionController extends Controller
 {
@@ -13,10 +14,14 @@ class TransactionController extends Controller
     // --- HALAMAN RIWAYAT TRANSAKSI ---
     public function index()
     {
-        // Ambil data transaksi, urutkan dari yang terbaru
-        // 'with' digunakan agar nama produk ikut terbawa
-        $transactions = Transaction::with('product')->latest()->get();
+        // SEBELUMNYA: $transactions = Transaction::with('product')->latest()->get();
         
+        // SESUDAHNYA:
+        $transactions = Transaction::with('product')
+                        ->where('user_id', Auth::id()) // <--- Filter User
+                        ->latest()
+                        ->get();
+
         return view('transactions.index', compact('transactions'));
     }
     // Tampilkan Form Transaksi

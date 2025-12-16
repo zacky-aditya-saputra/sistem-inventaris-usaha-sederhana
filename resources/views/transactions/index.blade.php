@@ -12,106 +12,95 @@
 
     <button data-drawer-target="default-sidebar" data-drawer-toggle="default-sidebar" aria-controls="default-sidebar"
         type="button"
-        class="text-heading bg-transparent box-border border border-transparent hover:bg-neutral-secondary-medium focus:ring-4 focus:ring-neutral-tertiary font-medium leading-5 rounded-base ms-3 mt-3 text-sm p-2 focus:outline-none inline-flex sm:hidden">
+        class="inline-flex items-center p-2 mt-2 ms-3 text-sm text-gray-500 rounded-lg sm:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200">
         <span class="sr-only">Open sidebar</span>
-        <svg class="w-6 h-6" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24"
-            fill="none" viewBox="0 0 24 24">
-            <path stroke="currentColor" stroke-linecap="round" stroke-width="2" d="M5 7h14M5 12h14M5 17h10" />
+        <svg class="w-6 h-6" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20"
+            xmlns="http://www.w3.org/2000/svg">
+            <path clip-rule="evenodd" fill-rule="evenodd"
+                d="M2 4.75A.75.75 0 012.75 4h14.5a.75.75 0 010 1.5H2.75A.75.75 0 012 4.75zm0 10.5a.75.75 0 01.75-.75h7.5a.75.75 0 010 1.5h-7.5a.75.75 0 01-.75-.75zM2 10a.75.75 0 01.75-.75h14.5a.75.75 0 010 1.5H2.75A.75.75 0 012 10z">
+            </path>
         </svg>
     </button>
 
     <aside id="default-sidebar"
         class="fixed top-0 left-0 z-40 w-64 h-full transition-transform -translate-x-full sm:translate-x-0"
         aria-label="Sidebar">
-        <div class="h-full px-3 py-4 overflow-y-auto bg-neutral-primary-soft border-e border-default">
+        <div class="h-full px-3 py-4 overflow-y-auto bg-gray-50 border-r border-gray-200 flex flex-col justify-between">
+            <div>
+                <div class="flex flex-col items-center justify-center mb-6 mt-4">
+                    <img src="{{ asset('logoInventarus.png') }}" alt="Logo Inventarus"
+                        class="w-2/3 h-auto object-contain">
+                    <h1 class="text-2xl font-extrabold text-gray-800 mt-3 tracking-wider uppercase">INVENTARUS</h1>
+                </div>
 
-            <div class="flex flex-col items-center justify-center mb-6 mt-4">
-                <img src="logoInventarus.png" alt="Logo Inventarus" class="w-3/4 h-auto object-contain">
+                <span class="flex items-center">
+                    <span class="h-px flex-auto bg-gray-300 mb-6"></span>
+                </span>
 
-                <h1 class="text-2xl font-extrabold text-gray-800 mt-3 tracking-wider uppercase font-sans">
-                    INVENTARUS
-                </h1>
+                <ul class="space-y-2 font-medium">
+                    <li>
+                        <a href="{{ route('dashboard') }}"
+                            class="flex items-center p-2 text-gray-900 rounded-lg hover:bg-gray-100 group">
+                            <svg class="w-5 h-5 transition duration-75 group-hover:text-fg-brand"
+                                xmlns="http://www.w3.org/2000/svg"
+                                viewBox="0 0 640 640"><!--!Font Awesome Free v7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2025 Fonticons, Inc.-->
+                                <path
+                                    d="M304 70.1C313.1 61.9 326.9 61.9 336 70.1L568 278.1C577.9 286.9 578.7 302.1 569.8 312C560.9 321.9 545.8 322.7 535.9 313.8L527.9 306.6L527.9 511.9C527.9 547.2 499.2 575.9 463.9 575.9L175.9 575.9C140.6 575.9 111.9 547.2 111.9 511.9L111.9 306.6L103.9 313.8C94 322.6 78.9 321.8 70 312C61.1 302.2 62 287 71.8 278.1L304 70.1zM320 120.2L160 263.7L160 512C160 520.8 167.2 528 176 528L224 528L224 424C224 384.2 256.2 352 296 352L344 352C383.8 352 416 384.2 416 424L416 528L464 528C472.8 528 480 520.8 480 512L480 263.7L320 120.3zM272 528L368 528L368 424C368 410.7 357.3 400 344 400L296 400C282.7 400 272 410.7 272 424L272 528z" />
+                            </svg>
+                            <span class="ms-3">Dashboard</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="{{ route('products.index') }}"
+                            class="flex items-center p-2 text-gray-900 rounded-lg hover:bg-gray-100 group">
+                            <svg class="w-5 h-5 transition duration-75 group-hover:text-fg-brand"
+                                xmlns="http://www.w3.org/2000/svg"
+                                viewBox="0 0 640 640"><!--!Font Awesome Free v7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2025 Fonticons, Inc.-->
+                                <path
+                                    d="M32 206.1L32 544C32 561.7 46.3 576 64 576C81.7 576 96 561.7 96 544L96 304C96 286.3 110.3 272 128 272L512 272C529.7 272 544 286.3 544 304L544 544C544 561.7 558.3 576 576 576C593.7 576 608 561.7 608 544L608 206.1C608 178.6 590.4 154.1 564.2 145.4L335.2 69.1C325.3 65.8 314.7 65.8 304.8 69.1L75.8 145.4C49.6 154.1 32 178.6 32 206.1zM496 320L144 320L144 384L496 384L496 320zM144 480L496 480L496 416L144 416L144 480zM496 512L144 512L144 576L496 576L496 512z" />
+                            </svg>
+                            <span class="ms-3">Stok Gudang</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="{{ route('categories.index') }}"
+                            class="flex items-center p-2 text-gray-900 rounded-lg hover:bg-gray-100 group">
+                            <svg class="w-5 h-5 transition duration-75 group-hover:text-fg-brand"
+                                xmlns="http://www.w3.org/2000/svg"
+                                viewBox="0 0 576 512"><!--!Font Awesome Free v7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2025 Fonticons, Inc.-->
+                                <path
+                                    d="M97.5 400l50-160 379.4 0-50 160-379.4 0zm190.7 48L477 448c21 0 39.6-13.6 45.8-33.7l50-160c9.7-30.9-13.4-62.3-45.8-62.3l-379.4 0c-21 0-39.6 13.6-45.8 33.7L80.2 294.4 80.2 96c0-8.8 7.2-16 16-16l138.7 0c3.5 0 6.8 1.1 9.6 3.2L282.9 112c13.8 10.4 30.7 16 48 16l117.3 0c8.8 0 16 7.2 16 16l48 0c0-35.3-28.7-64-64-64L330.9 80c-6.9 0-13.7-2.2-19.2-6.4L273.3 44.8C262.2 36.5 248.8 32 234.9 32L96.2 32c-35.3 0-64 28.7-64 64l0 288c0 35.3 28.7 64 64 64l192 0z" />
+                            </svg>
+                            <span class="ms-3">Kategori</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="{{ route('transactions.index') }}"
+                            class="flex items-center p-2 text-purple-700 rounded-lg bg-gray-200 group">
+                            <svg class="w-5 h-5 transition duration-75 group-hover:text-fg-brand"
+                                xmlns="http://www.w3.org/2000/svg"
+                                viewBox="0 0 576 512"><!--!Font Awesome Free v7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2025 Fonticons, Inc.-->
+                                <path
+                                    d="M288 64c106 0 192 86 192 192S394 448 288 448c-65.2 0-122.9-32.5-157.6-82.3-10.1-14.5-30.1-18-44.6-7.9s-18 30.1-7.9 44.6C124.1 468.6 201 512 288 512 429.4 512 544 397.4 544 256S429.4 0 288 0C202.3 0 126.5 42.1 80 106.7L80 80c0-17.7-14.3-32-32-32S16 62.3 16 80l0 112c0 17.7 14.3 32 32 32l24.6 0c.5 0 1 0 1.5 0l86 0c17.7 0 32-14.3 32-32s-14.3-32-32-32l-38.3 0C154.9 102.6 217 64 288 64zm24 88c0-13.3-10.7-24-24-24s-24 10.7-24 24l0 104c0 6.4 2.5 12.5 7 17l72 72c9.4 9.4 24.6 9.4 33.9 0s9.4-24.6 0-33.9l-65-65 0-94.1z" />
+                            </svg>
+                            <span class="ms-3">Riwayat</span>
+                        </a>
+                    </li>
+                </ul>
             </div>
-            <ul class="space-y-2 font-medium">
+
+            <ul class="space-y-2 font-medium border-t border-gray-200 pt-4">
                 <li>
-                    <a href="#"
-                        class="flex items-center px-2 py-1.5 text-body rounded-base hover:bg-neutral-tertiary hover:text-fg-brand group">
-                        <svg class="w-5 h-5 transition duration-75 group-hover:text-fg-brand" aria-hidden="true"
-                            xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none"
-                            viewBox="0 0 24 24">
-                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                d="M10 6.025A7.5 7.5 0 1 0 17.975 14H10V6.025Z" />
-                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                d="M13.5 3c-.169 0-.334.014-.5.025V11h7.975c.011-.166.025-.331.025-.5A7.5 7.5 0 0 0 13.5 3Z" />
-                        </svg>
-                        <span class="ms-3">Dashboard</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="#"
-                        class="flex items-center px-2 py-1.5 text-body rounded-base hover:bg-neutral-tertiary hover:text-fg-brand group">
-                        <svg class="shrink-0 w-5 h-5 transition duration-75 group-hover:text-fg-brand"
-                            aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24"
-                            fill="none" viewBox="0 0 24 24">
-                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                d="M15 5v14M9 5v14M4 5h16a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1Z" />
-                        </svg>
-                        <span class="flex-1 ms-3 whitespace-nowrap">Kanban</span>
-                        <span
-                            class="bg-neutral-secondary-medium border border-default-medium text-heading text-xs font-medium px-1.5 py-0.5 rounded-sm">Pro</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="#"
-                        class="flex items-center px-2 py-1.5 text-body rounded-base hover:bg-neutral-tertiary hover:text-fg-brand group">
-                        <svg class="shrink-0 w-5 h-5 transition duration-75 group-hover:text-fg-brand"
-                            aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24"
-                            fill="none" viewBox="0 0 24 24">
-                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                d="M4 13h3.439a.991.991 0 0 1 .908.6 3.978 3.978 0 0 0 7.306 0 .99.99 0 0 1 .908-.6H20M4 13v6a1 1 0 0 0 1 1h14a1 1 0 0 0 1-1v-6M4 13l2-9h12l2 9M9 7h6m-7 3h8" />
-                        </svg>
-                        <span class="flex-1 ms-3 whitespace-nowrap">Inbox</span>
-                        <span
-                            class="inline-flex items-center justify-center w-4.5 h-4.5 ms-2 text-xs font-medium text-fg-danger-strong bg-danger-soft border border-danger-subtle rounded-full">2</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="#"
-                        class="flex items-center px-2 py-1.5 text-body rounded-base hover:bg-neutral-tertiary hover:text-fg-brand group">
-                        <svg class="shrink-0 w-5 h-5 transition duration-75 group-hover:text-fg-brand"
-                            aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24"
-                            fill="none" viewBox="0 0 24 24">
-                            <path stroke="currentColor" stroke-linecap="round" stroke-width="2"
-                                d="M16 19h4a1 1 0 0 0 1-1v-1a3 3 0 0 0-3-3h-2m-2.236-4a3 3 0 1 0 0-4M3 18v-1a3 3 0 0 1 3-3h4a3 3 0 0 1 3 3v1a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1Zm8-10a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z" />
-                        </svg>
-                        <span class="flex-1 ms-3 whitespace-nowrap">Users</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="#"
-                        class="flex items-center px-2 py-1.5 text-body rounded-base hover:bg-neutral-tertiary hover:text-fg-brand group">
-                        <svg class="shrink-0 w-5 h-5 transition duration-75 group-hover:text-fg-brand"
-                            aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24"
-                            fill="none" viewBox="0 0 24 24">
-                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
-                                stroke-width="2"
-                                d="M9 10V6a3 3 0 0 1 3-3v0a3 3 0 0 1 3 3v4m3-2 .917 11.923A1 1 0 0 1 17.92 21H6.08a1 1 0 0 1-.997-1.077L6 8h12Z" />
-                        </svg>
-                        <span class="flex-1 ms-3 whitespace-nowrap">Products</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="#"
-                        class="flex items-center px-2 py-1.5 text-body rounded-base hover:bg-neutral-tertiary hover:text-fg-brand group">
-                        <svg class="shrink-0 w-5 h-5 transition duration-75 group-hover:text-fg-brand"
-                            aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24"
-                            fill="none" viewBox="0 0 24 24">
-                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
-                                stroke-width="2"
-                                d="M16 12H4m12 0-4 4m4-4-4-4m3-4h2a3 3 0 0 1 3 3v10a3 3 0 0 1-3 3h-2" />
-                        </svg>
-                        <span class="flex-1 ms-3 whitespace-nowrap">Sign In</span>
-                    </a>
+                    <form method="POST" action="{{ route('logout') }}">
+                        @csrf
+                        <a href="{{ route('logout') }}" onclick="event.preventDefault(); this.closest('form').submit();"
+                            class="flex items-center p-2 text-gray-900 rounded-lg hover:bg-red-100 hover:text-red-700 group cursor-pointer">
+                            <svg class="w-5 h-5 text-gray-500 transition duration-75 group-hover:text-red-700" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 18 16">
+                               <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 8h11m0 0L8 4m4 4-4 4m4-11h3a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2h-3"/>
+                            </svg>
+                            <span class="ms-3 whitespace-nowrap">Logout</span>
+                        </a>
+                    </form>
                 </li>
             </ul>
         </div>
@@ -123,20 +112,23 @@
 
             <div class="flex justify-between items-center mb-6">
                 <div>
-                    <h1 class="text-3xl font-bold text-gray-800">📜 Riwayat Perpindahan Aset</h1>
+                    <h1 class="text-3xl font-bold text-gray-800">Riwayat Perpindahan Aset</h1>
                     <p class="text-gray-500">Pantau siapa yang meminjam dan mengembalikan barang.</p>
                 </div>
+                <div class="flex justify-end">
 
-                <a href="{{ route('products.index') }}"
-                    class="bg-gray-500 hover:bg-gray-600 text-white font-bold py-2 px-4 rounded shadow">
-                    ⬅ Kembali ke Stok
-                </a>
+                    <a href="{{ route('transactions.create') }}"
+                        class="flex items-center py-2 px-4 bg-purple-600 hover:bg-purple-700 text-white rounded-xl group">
+                        <span class="font-bold">Catat Transaksi</span>
+                    </a>
+
+                </div>
             </div>
 
-            <div class="bg-white shadow-md rounded-lg overflow-hidden">
+            <div class="bg-white shadow-md rounded overflow-hidden">
                 <table class="min-w-full leading-normal">
                     <thead>
-                        <tr class="bg-gray-200 text-gray-600 uppercase text-sm leading-normal">
+                        <tr class="bg-purple-300 text-gray-900 uppercase text-sm leading-normal">
                             <th class="py-3 px-6 text-left">Tanggal</th>
                             <th class="py-3 px-6 text-left">Barang</th>
                             <th class="py-3 px-6 text-center">Aktivitas</th>

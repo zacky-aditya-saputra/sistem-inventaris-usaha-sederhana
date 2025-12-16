@@ -6,13 +6,16 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Category;
 use Illuminate\Support\Str; // <-- Import ini untuk bikin slug otomatis
+use Illuminate\Support\Facades\Auth;
 
 class CategoryController extends Controller
 {
     // 1. Tampilkan Daftar Kategori
     public function index()
     {
-        $categories = Category::all();
+
+        $categories = Category::where('user_id', Auth::id())->get();
+        
         return view('categories.index', compact('categories'));
     }
 
@@ -25,16 +28,23 @@ class CategoryController extends Controller
     // 3. Simpan Kategori Baru
     public function store(Request $request)
     {
+        // 1. Validasi Input
         $request->validate([
-            'name' => 'required|unique:categories,name', // Nama tidak boleh kembar
+            'name' => 'required|string|max:255',
         ]);
 
-        Category::create([
-            'name' => $request->name,
-            'slug' => Str::slug($request->name) // 'Alat Tulis' -> 'alat-tulis'
-        ]);
+        // 2. Simpan Data (Cara Manual agar Aman)
+        $category = new Category();
+        $category->name = $request->name;
+        $category->user_id = Auth::id(); // <--- Penting: Set pemilik data
+        
+        // JANGAN ADA BARIS SEPERTI INI:
+        // $category->slug = Str::slug($request->name); 
+        
+        $category->save();
 
-        return redirect()->route('categories.index')->with('success', 'Kategori berhasil dibuat!');
+        // 3. Kembali ke halaman list
+        return redirect()->route('categories.index')->with('success', 'Kategori berhasil ditambahkan');
     }
 
     // 4. Form Edit Kategori
