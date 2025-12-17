@@ -12,7 +12,7 @@ class DashboardController extends Controller
 {
     public function index()
     {
-        $userId = Auth::id(); // Ambil ID user sekalian
+        $userId = Auth::id();
 
         // Hitung Produk Sendiri
         $totalProducts = Product::where('user_id', $userId)->count();
@@ -22,9 +22,7 @@ class DashboardController extends Controller
 
         // Hitung Aset Sendiri
         $myProducts = Product::where('user_id', $userId)->get();
-        $totalAssets = $myProducts->sum('stock') + $myProducts->sum('borrowed'); // Asumsi ada kolom borrowed
-        // Jika tidak ada kolom borrowed, cukup: $totalAssets = $myProducts->sum('stock');
-        
+        $totalAssets = $myProducts->sum('stock') + $myProducts->sum('borrowed');
         $totalBorrowed = $myProducts->sum('borrowed') ?? 0;
 
         // Stok Menipis (Punya Sendiri)
@@ -32,14 +30,18 @@ class DashboardController extends Controller
 
         // Transaksi Terakhir (Punya Sendiri)
         $recentTransactions = Transaction::with('product')
-                                ->where('user_id', $userId)
-                                ->latest()
-                                ->take(5)
-                                ->get();
+            ->where('user_id', $userId)
+            ->latest()
+            ->take(5)
+            ->get();
 
         return view('dashboard', compact(
-            'totalProducts', 'totalCategories', 'totalAssets', 
-            'totalBorrowed', 'lowStockItems', 'recentTransactions'
+            'totalProducts',
+            'totalCategories',
+            'totalAssets',
+            'totalBorrowed',
+            'lowStockItems',
+            'recentTransactions'
         ));
     }
 }

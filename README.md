@@ -1,4 +1,4 @@
-# 📦 INVENTARUS - Sistem Inventaris Usaha (Multi-User)
+# INVENTARUS - Sistem Inventaris Usaha (Multi-User)
 
 ![Laravel](https://img.shields.io/badge/Laravel-FF2D20?style=for-the-badge&logo=laravel&logoColor=white)
 ![TailwindCSS](https://img.shields.io/badge/Tailwind_CSS-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white)
@@ -61,5 +61,37 @@ Sebelum menjalankan aplikasi, pastikan komputer Anda sudah terinstal:
 
 ## ⚙️ Panduan Instalasi (Langkah demi Langkah)
 
-### Untuk Panduan Instalasi Silahkan Bisa Akses Link di Bawah 
+### Menggunakan Docker(Rekomendasi)
+Prasyarat: Pastikan Docker Dekstop sudah berjalan
+
+#### 1. Install Dependencies
+Jika di laptop Anda sudah ada PHP & Composer, cukup jalankan:
+`composer install`
+Jika belum ada PHP, gunakan perintah Docker ini untuk instalasi awal:
+```bash
+docker run --rm \
+    -u "$(id -u):$(id -g)" \
+    -v "$(pwd):/var/www/html" \
+    -w /var/www/html \
+    laravelsail/php83-composer:latest \
+    composer install --ignore-platform-reqs
+```
+
+#### 2. Setup Environment
+`cp .env.example .env`
+
+#### 3. Jalankan Aplikasi
+`./vendor/bin/sail up -d`
+
+#### 4. Setup Akhir
+```bash
+./vendor/bin/sail artisan key:generate
+./vendor/bin/sail artisan migrate:fresh --seed
+./vendor/bin/sail npm install && ./vendor/bin/sail npm run build
+```
+
+#### 5. Menghentikan Aplikasi
+`./vendor/bin/sail down`
+
+### Untuk Selebihnya Panduan Instalasi Silahkan Bisa Akses Link di Bawah 
 [Panduan Instalasi](https://docs.google.com/document/d/1CmNxC70ouxP4KVcZwg4VP9Qi2ZyxyFY7CM1zXmzEDbs/edit?usp=sharing)

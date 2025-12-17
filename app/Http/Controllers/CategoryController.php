@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Category;
-use Illuminate\Support\Str; // <-- Import ini untuk bikin slug otomatis
+use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Auth;
 
 class CategoryController extends Controller

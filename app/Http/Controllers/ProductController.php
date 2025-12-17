@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Product;
 use App\Models\Category;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth; // <--- JANGAN LUPA INI!
+use Illuminate\Support\Facades\Auth;
 
 class ProductController extends Controller
 {
@@ -25,7 +25,6 @@ class ProductController extends Controller
      */
     public function create()
     {
-        // Ambil kategori milik user ini saja untuk pilihan di form
         $categories = Category::where('user_id', Auth::id())->get();
         return view('products.create', compact('categories'));
     }
@@ -40,19 +39,15 @@ class ProductController extends Controller
             'category_id' => 'required',
             'stock' => 'required|integer',
             'price' => 'required|numeric',
-            // Hapus validasi SKU
         ]);
 
-        // CARA BARU (Manual agar SKU tidak ikut)
         $product = new Product();
-        $product->user_id = Auth::id(); // Set Pemilik
+        $product->user_id = Auth::id();
         $product->category_id = $request->category_id;
         $product->name = $request->name;
         $product->stock = $request->stock;
         $product->price = $request->price;
-        $product->description = $request->description; // Jika ada deskripsi
-
-        // Kita TIDAK mengambil $request->sku, jadi aman!
+        $product->description = $request->description; 
 
         $product->save();
 
@@ -99,8 +94,6 @@ class ProductController extends Controller
         $product->stock = $request->stock;
         $product->price = $request->price;
         $product->description = $request->description;
-
-        // SKU tidak di-update
 
         $product->save();
 

@@ -7,12 +7,6 @@ use App\Http\Controllers\TransactionController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\DashboardController;
 
-/*
-|--------------------------------------------------------------------------
-| Web Routes (Area Terproteksi)
-|--------------------------------------------------------------------------
-*/
-
 // 1. Jika buka halaman awal, paksa ke Login dulu
 Route::get('/', function () {
     return redirect()->route('login');

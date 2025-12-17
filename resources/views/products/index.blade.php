@@ -27,7 +27,7 @@
     <aside id="default-sidebar"
         class="fixed top-0 left-0 z-40 w-64 h-full transition-transform -translate-x-full sm:translate-x-0"
         aria-label="Sidebar">
-        <div class="h-full px-3 py-4 overflow-y-auto bg-gray-50 border-r border-gray-200 flex flex-col justify-between">
+        <div class="h-full px-3 py-4 overflow-y-auto bg-gray-50 border-r border-gray-200 flex flex-col justify-between shadow-xl">
 
             <div>
                 <div class="flex flex-col items-center justify-center mb-6 mt-4">
@@ -43,7 +43,7 @@
                 <ul class="space-y-2 font-medium">
                     <li>
                         <a href="{{ route('dashboard') }}"
-                            class="flex items-center p-2 text-gray-900 rounded-lg hover:bg-gray-100 group">
+                            class="flex items-center p-2 text-gray-900 rounded-lg hover:text-purple-700 hover:bg-gray-100 group">
                             <svg class="w-5 h-5 transition duration-75 group-hover:text-fg-brand"
                                 xmlns="http://www.w3.org/2000/svg"
                                 viewBox="0 0 640 640"><!--!Font Awesome Free v7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2025 Fonticons, Inc.-->
@@ -55,7 +55,7 @@
                     </li>
                     <li>
                         <a href="{{ route('products.index') }}"
-                            class="flex items-center p-2 text-purple-700 rounded-lg bg-gray-200 group">
+                            class="flex items-center p-2 text-purple-700 rounded-lg bg-purple-100 group">
                             <svg class="w-5 h-5 transition duration-75 group-hover:text-fg-brand"
                                 xmlns="http://www.w3.org/2000/svg"
                                 viewBox="0 0 640 640"><!--!Font Awesome Free v7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2025 Fonticons, Inc.-->
@@ -67,7 +67,7 @@
                     </li>
                     <li>
                         <a href="{{ route('categories.index') }}"
-                            class="flex items-center p-2 text-gray-900 rounded-lg hover:bg-gray-100 group">
+                            class="flex items-center p-2 text-gray-900 rounded-lg hover:text-purple-700 hover:bg-gray-100 group">
                             <svg class="w-5 h-5 transition duration-75 group-hover:text-fg-brand"
                                 xmlns="http://www.w3.org/2000/svg"
                                 viewBox="0 0 576 512"><!--!Font Awesome Free v7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2025 Fonticons, Inc.-->
@@ -79,7 +79,7 @@
                     </li>
                     <li>
                         <a href="{{ route('transactions.index') }}"
-                            class="flex items-center p-2 text-gray-900 rounded-lg hover:bg-gray-100 group">
+                            class="flex items-center p-2 text-gray-900 rounded-lg hover:text-purple-700 hover:bg-gray-100 group">
                             <svg class="w-5 h-5 transition duration-75 group-hover:text-fg-brand"
                                 xmlns="http://www.w3.org/2000/svg"
                                 viewBox="0 0 576 512"><!--!Font Awesome Free v7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2025 Fonticons, Inc.-->

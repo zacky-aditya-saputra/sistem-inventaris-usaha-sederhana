@@ -13,8 +13,8 @@ class Product extends Model
         'category_id',
         'name',
         'sku',
-        'stock',      // Ini stok di gudang
-        'borrowed',   // Ini stok di peminjam
+        'stock',      
+        'borrowed',  
         'price',
         'image',
         'description',

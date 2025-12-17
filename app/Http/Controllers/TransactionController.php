@@ -14,9 +14,7 @@ class TransactionController extends Controller
     // --- HALAMAN RIWAYAT TRANSAKSI ---
     public function index()
     {
-        // SEBELUMNYA: $transactions = Transaction::with('product')->latest()->get();
-        
-        // SESUDAHNYA:
+    
         $transactions = Transaction::with('product')
                         ->where('user_id', Auth::id()) // <--- Filter User
                         ->latest()
@@ -27,7 +25,7 @@ class TransactionController extends Controller
     // Tampilkan Form Transaksi
     public function create()
     {
-        $products = Product::all(); // Ambil semua barang buat dipilih
+        $products = Product::all();
         return view('transactions.create', compact('products'));
     }
 
@@ -38,7 +36,6 @@ class TransactionController extends Controller
         $product = Product::findOrFail($request->product_id);
 
         // --- VALIDASI STOK ---
-        // Jika mau pinjam, pastikan stok di gudang ada
         if ($request->type == 'loan' && $product->stock < $request->quantity) {
             return back()->withErrors(['quantity' => 'Stok di gudang tidak cukup untuk dipinjam!']);
         }
@@ -62,13 +59,13 @@ class TransactionController extends Controller
         // --- UPDATE STOK (LOGIKA PINDAH) ---
         if ($request->type == 'loan') {
             // PINJAM: Pindah dari Gudang ke Kolom Borrowed
-            $product->decrement('stock', $request->quantity);    // Gudang Berkurang
-            $product->increment('borrowed', $request->quantity); // Angka "Dipinjam" Bertambah
+            $product->decrement('stock', $request->quantity);    
+            $product->increment('borrowed', $request->quantity); 
             // TOTAL ASET TETAP SAMA
         } elseif ($request->type == 'return') {
             // KEMBALI: Pindah dari Kolom Borrowed ke Gudang
-            $product->increment('stock', $request->quantity);    // Gudang Bertambah
-            $product->decrement('borrowed', $request->quantity); // Angka "Dipinjam" Berkurang
+            $product->increment('stock', $request->quantity);
+            $product->decrement('borrowed', $request->quantity);
         } elseif ($request->type == 'restock') {
             // BELI BARU: Aset Bertambah Murni
             $product->increment('stock', $request->quantity);

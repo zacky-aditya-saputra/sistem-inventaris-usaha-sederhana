@@ -1,6 +1,10 @@
 <x-guest-layout>
+    <div class="mb-6 text-center">
+            <h2 class="text-4xl font-extrabold text-purple-700">INVENTARUS</h2>
+            <p class="text-gray-500 text-sm">Masuk untuk mengelola aset anda</p>
+        </div>
     <div class="mb-4 text-sm text-gray-600">
-        {{ __('Forgot your password? No problem. Just let us know your email address and we will email you a password reset link that will allow you to choose a new one.') }}
+        {{ __('Lupa kata sandi? Masukkan email Anda, dan kami akan mengirimkan tautan untuk membuat kata sandi baru.') }}
     </div>
 
     <!-- Session Status -->

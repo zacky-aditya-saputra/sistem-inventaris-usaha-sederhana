@@ -3,6 +3,7 @@
 namespace App\Providers;
 
 use Illuminate\Support\ServiceProvider;
+use Illuminate\Support\Facades\URL; // <--- PENTING: Jangan lupa baris ini
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -19,6 +20,10 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
-        //
+        // Cek apakah aplikasi diakses melalui Dev Tunnel (VS Code)
+        if (str_contains(request()->getHost(), 'devtunnels.ms')) {
+            // Paksa Laravel menggunakan HTTPS agar tidak otomatis menambahkan port :8000
+            URL::forceScheme('https');
+        }
     }
 }
