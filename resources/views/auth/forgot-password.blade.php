@@ -16,13 +16,17 @@
         <!-- Email Address -->
         <div>
             <x-input-label for="email" :value="__('Email')" />
-            <x-text-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email')" required autofocus />
+            <x-text-input id="email" class="block mt-1 w-full  border-gray-300 focus:border-purple-500 focus:ring-purple-500 rounded-lg shadow-sm" type="email" name="email" :value="old('email')" required autofocus />
             <x-input-error :messages="$errors->get('email')" class="mt-2" />
         </div>
 
         <div class="flex items-center justify-end mt-4">
-            <x-primary-button>
-                {{ __('Email Password Reset Link') }}
+            <a class="text-sm text-purple-600 hover:text-purple-800 font-medium hover:underline" href="{{ route('login') }}">
+                {{ __('Kembali ke Halaman Login') }}
+            </a>
+
+            <x-primary-button class="ms-3 bg-purple-700 hover:bg-purple-800 focus:bg-purple-800 active:bg-purple-900">
+                {{ __('Link Reset Sandi') }}
             </x-primary-button>
         </div>
     </form>

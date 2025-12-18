@@ -25,7 +25,8 @@
     <aside id="default-sidebar"
         class="fixed top-0 left-0 z-40 w-64 h-full transition-transform -translate-x-full sm:translate-x-0"
         aria-label="Sidebar">
-        <div class="h-full px-3 py-4 overflow-y-auto bg-gray-50 border-r border-gray-200 flex flex-col justify-between shadow-xl">
+        <div
+            class="h-full px-3 py-4 overflow-y-auto bg-gray-50 border-r border-gray-200 flex flex-col justify-between shadow-xl">
 
             <div>
                 <div class="flex flex-col items-center justify-center mb-6 mt-4">
@@ -129,7 +130,6 @@
                     <thead class="bg-purple-300">
                         <tr>
                             <th class="py-3 px-6 text-left">Nama Kategori</th>
-                            <th class="py-3 px-6 text-left">Slug</th>
                             <th class="py-3 px-6 text-center">Aksi</th>
                         </tr>
                     </thead>
@@ -137,7 +137,6 @@
                         @foreach ($categories as $category)
                             <tr class="border-b hover:bg-gray-50">
                                 <td class="py-3 px-6 font-medium">{{ $category->name }}</td>
-                                <td class="py-3 px-6 text-gray-500 text-sm">{{ $category->slug }}</td>
                                 <td class="py-3 px-6 text-center flex justify-center gap-2">
                                     <a href="{{ route('categories.edit', $category->id) }}"
                                         class="text-blue-500 hover:text-blue-700 font-bold">Edit</a>
