@@ -4,7 +4,9 @@
 ![TailwindCSS](https://img.shields.io/badge/Tailwind_CSS-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white)
 ![SQLite](https://img.shields.io/badge/SQLite-07405E?style=for-the-badge&logo=sqlite&logoColor=white)
 
-**Inventarus** adalah aplikasi berbasis web untuk manajemen stok barang yang dirancang dengan arsitektur **Multi-Tenant (SaaS-lite)**. Aplikasi ini memungkinkan banyak pengguna (usaha) untuk mendaftar dan mengelola gudang mereka masing-masing secara terisolasi dalam satu sistem database yang sama.
+**Inventarus** adalah aplikasi manajemen inventaris berbasis web yang dirancang untuk membantu pelaku usaha kecil hingga menengah dalam mengelola aset mereka secara digital. Nama "Inventarus" sendiri merupakan gabungan dari **"Inventaris"** dan **"Arus"**, yang melambangkan fokus aplikasi pada pencatatan alur keluar-masuk barang yang akurat.
+
+**Inventarus** dirancang dengan arsitektur **Multi-Tenant**. Aplikasi ini memungkinkan banyak pengguna untuk mendaftar dan mengelola gudang mereka masing-masing secara terisolasi dalam satu sistem database yang sama.
 
 ---
 
