@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="id">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,18 +8,27 @@
     <link href="https://cdn.jsdelivr.net/npm/flowbite@4.0.1/dist/flowbite.min.css" rel="stylesheet" />
     <script src="https://cdn.tailwindcss.com"></script>
 </head>
+
 <body class="bg-gray-50 font-sans leading-normal tracking-normal">
 
-    <button data-drawer-target="default-sidebar" data-drawer-toggle="default-sidebar" aria-controls="default-sidebar" type="button" class="inline-flex items-center p-2 mt-2 ms-3 text-sm text-gray-500 rounded-lg sm:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200">
+    <button data-drawer-target="default-sidebar" data-drawer-toggle="default-sidebar" aria-controls="default-sidebar"
+        type="button"
+        class="inline-flex items-center p-2 mt-2 ms-3 text-sm text-gray-500 rounded-lg sm:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200">
         <span class="sr-only">Open sidebar</span>
-        <svg class="w-6 h-6" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-        <path clip-rule="evenodd" fill-rule="evenodd" d="M2 4.75A.75.75 0 012.75 4h14.5a.75.75 0 010 1.5H2.75A.75.75 0 012 4.75zm0 10.5a.75.75 0 01.75-.75h7.5a.75.75 0 010 1.5h-7.5a.75.75 0 01-.75-.75zM2 10a.75.75 0 01.75-.75h14.5a.75.75 0 010 1.5H2.75A.75.75 0 012 10z"></path>
+        <svg class="w-6 h-6" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20"
+            xmlns="http://www.w3.org/2000/svg">
+            <path clip-rule="evenodd" fill-rule="evenodd"
+                d="M2 4.75A.75.75 0 012.75 4h14.5a.75.75 0 010 1.5H2.75A.75.75 0 012 4.75zm0 10.5a.75.75 0 01.75-.75h7.5a.75.75 0 010 1.5h-7.5a.75.75 0 01-.75-.75zM2 10a.75.75 0 01.75-.75h14.5a.75.75 0 010 1.5H2.75A.75.75 0 012 10z">
+            </path>
         </svg>
     </button>
 
-    <aside id="default-sidebar" class="fixed top-0 left-0 z-40 w-64 h-full transition-transform -translate-x-full sm:translate-x-0" aria-label="Sidebar">
-        <div class="h-full px-3 py-4 overflow-y-auto bg-gray-50 border-r border-gray-200 flex flex-col justify-between shadow-xl">
-            
+    <aside id="default-sidebar"
+        class="fixed top-0 left-0 z-40 w-64 h-full transition-transform -translate-x-full sm:translate-x-0"
+        aria-label="Sidebar">
+        <div
+            class="h-full px-3 py-4 overflow-y-auto bg-gray-50 border-r border-gray-200 flex flex-col justify-between shadow-xl">
+
             <div>
                 <div class="flex flex-col items-center justify-center mb-6 mt-4">
                     <img src="{{ asset('logoInventarus.png') }}" alt="Logo Inventarus"
@@ -88,8 +98,12 @@
                         @csrf
                         <a href="{{ route('logout') }}" onclick="event.preventDefault(); this.closest('form').submit();"
                             class="flex items-center p-2 text-gray-900 rounded-lg hover:bg-red-100 hover:text-red-700 group cursor-pointer">
-                            <svg class="w-5 h-5 text-gray-500 transition duration-75 group-hover:text-red-700" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 18 16">
-                               <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 8h11m0 0L8 4m4 4-4 4m4-11h3a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2h-3"/>
+                            <svg class="w-5 h-5 text-gray-500 transition duration-75 group-hover:text-red-700"
+                                aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none"
+                                viewBox="0 0 18 16">
+                                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                                    stroke-width="2"
+                                    d="M1 8h11m0 0L8 4m4 4-4 4m4-11h3a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2h-3" />
                             </svg>
                             <span class="ms-3 whitespace-nowrap">Logout</span>
                         </a>
@@ -102,13 +116,13 @@
 
     <div class="p-4 sm:ml-64">
         <div class="max-w-7xl mx-auto mt-6">
-            
+
             <div class="mb-8">
                 <div class="flex justify-between items-end">
                     <div>
                         <h2 class="text-4xl font-bold text-gray-800">Dashboard</h2>
                         <p class="text-gray-600 mt-1">
-                            Selamat Datang, 
+                            Selamat Datang,
                             <span class="font-bold text-purple-600 text-lg">
                                 {{ Auth::user()->name ?? 'Tamu' }}
                             </span> 👋
@@ -118,16 +132,19 @@
                         {{ now()->translatedFormat('l, d F Y') }}
                     </div>
                 </div>
-                
+
                 <div class="mt-4 p-4 bg-purple-50 border-l-4 border-purple-500 text-purple-900 rounded-r shadow-sm">
                     <p class="text-sm leading-relaxed">
-                        Terima kasih telah menggunakan <strong>Inventarus</strong> 🤩. Halaman ini (Dashboard) menyajikan ringkasan statistik dan status terkini aset yang Anda miliki. Silakan klik menu di <strong>Sidebar kiri</strong> untuk mengelola Stok Gudang, mengatur Kategori, atau memantau Riwayat Transaksi secara <em>real-time</em>.
+                        Terima kasih telah menggunakan <strong>Inventarus</strong> 🤩. Halaman ini (Dashboard)
+                        menyajikan ringkasan statistik dan status terkini aset yang Anda miliki. Silakan klik menu di
+                        <strong>Sidebar kiri</strong> untuk mengelola Stok Gudang, mengatur Kategori, atau memantau
+                        Riwayat Transaksi secara <em>real-time</em>.
                     </p>
                 </div>
             </div>
 
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
-                
+
                 <div class="bg-white rounded-lg shadow p-6 border-l-4 border-blue-500">
                     <div class="flex justify-between items-center">
                         <div>
@@ -173,47 +190,59 @@
 
             <div class="flex gap-2 mb-6">
 
-                    <a href="{{ route('transactions.create') }}"
-                        class="flex items-center py-2 px-4 bg-purple-600 hover:bg-purple-700 transition delay-150 duration-300 ease-in-out text-white rounded-xl group">
-                        <span class="font-bold">Catat Transaksi</span>
-                    </a>
+                <a href="{{ route('categories.create') }}"
+                    class="flex items-center py-2 px-4 bg-purple-600 hover:bg-purple-700 text-white rounded-xl group font-bold">
+                    <span>+ Kategori Baru</span>
+                </a>
 
-                    <a href="{{ route('products.create') }}"
-                        class="flex items-center py-2 px-4 bg-purple-600 hover:bg-purple-700 text-white rounded-xl group">
-                        <span class="font-bold">Tambah Barang</span>
-                    </a>
-                </div>
+                <a href="{{ route('transactions.create') }}"
+                    class="flex items-center py-2 px-4 bg-purple-600 hover:bg-purple-700 transition delay-150 duration-300 ease-in-out text-white rounded-xl group">
+                    <span class="font-bold">Catat Transaksi</span>
+                </a>
+
+                <a href="{{ route('products.create') }}"
+                    class="flex items-center py-2 px-4 bg-purple-600 hover:bg-purple-700 text-white rounded-xl group">
+                    <span class="font-bold">Tambah Barang</span>
+                </a>
+            </div>
 
             <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
-                
+
                 <div class="bg-white shadow rounded-lg p-6">
                     <div class="flex justify-between items-center mb-4">
                         <h3 class="text-xl font-bold text-gray-800">⏱️ Aktivitas Terakhir</h3>
-                        <a href="{{ route('transactions.index') }}" class="text-blue-500 hover:underline text-sm">Lihat Semua</a>
+                        <a href="{{ route('transactions.index') }}"
+                            class="text-blue-500 hover:underline text-sm">Lihat Semua</a>
                     </div>
                     <ul class="divide-y divide-gray-200">
-                        @if(isset($recentTransactions))
-                            @foreach($recentTransactions as $t)
-                            <li class="py-3 flex justify-between items-center">
-                                <div class="flex items-center gap-3">
-                                    <div class="bg-gray-100 p-2 rounded">
-                                        @if($t->type == 'loan') 📤 @elseif($t->type == 'return') 📥 @else 📝 @endif
+                        @if (isset($recentTransactions))
+                            @foreach ($recentTransactions as $t)
+                                <li class="py-3 flex justify-between items-center">
+                                    <div class="flex items-center gap-3">
+                                        <div class="bg-gray-100 p-2 rounded">
+                                            @if ($t->type == 'loan')
+                                                📤
+                                            @elseif($t->type == 'return')
+                                                📥
+                                            @else
+                                                📝
+                                            @endif
+                                        </div>
+                                        <div>
+                                            <p class="text-sm font-bold text-gray-800">{{ $t->product->name }}</p>
+                                            <p class="text-xs text-gray-500">
+                                                {{ $t->type == 'loan' ? 'Dipinjam oleh' : ($t->type == 'return' ? 'Dikembalikan oleh' : 'Aktivitas') }}
+                                                {{ $t->recipient ?? '-' }}
+                                            </p>
+                                        </div>
                                     </div>
-                                    <div>
-                                        <p class="text-sm font-bold text-gray-800">{{ $t->product->name }}</p>
-                                        <p class="text-xs text-gray-500">
-                                            {{ $t->type == 'loan' ? 'Dipinjam oleh' : ($t->type == 'return' ? 'Dikembalikan oleh' : 'Aktivitas') }} 
-                                            {{ $t->recipient ?? '-' }}
-                                        </p>
+                                    <div class="text-right">
+                                        <p class="text-sm font-bold">{{ $t->quantity }} Unit</p>
+                                        <p class="text-xs text-gray-400">{{ $t->created_at->diffForHumans() }}</p>
                                     </div>
-                                </div>
-                                <div class="text-right">
-                                    <p class="text-sm font-bold">{{ $t->quantity }} Unit</p>
-                                    <p class="text-xs text-gray-400">{{ $t->created_at->diffForHumans() }}</p>
-                                </div>
-                            </li>
+                                </li>
                             @endforeach
-                            @if($recentTransactions->isEmpty())
+                            @if ($recentTransactions->isEmpty())
                                 <p class="text-gray-500 text-center py-4">Belum ada aktivitas.</p>
                             @endif
                         @else
@@ -224,35 +253,39 @@
 
                 <div class="bg-white shadow rounded-lg p-6">
                     <h3 class="text-xl font-bold text-red-600 mb-4">⚠️ Stok Menipis (< 5)</h3>
-                    @if(isset($lowStockItems) && $lowStockItems->count() > 0)
-                        <div class="overflow-x-auto">
-                            <table class="w-full text-sm text-left text-gray-500">
-                                <thead class="text-xs text-gray-700 uppercase bg-red-50">
-                                    <tr>
-                                        <th class="px-4 py-2">Barang</th>
-                                        <th class="px-4 py-2 text-center">Sisa Stok</th>
-                                        <th class="px-4 py-2 text-center">Aksi</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    @foreach($lowStockItems as $item)
-                                    <tr class="border-b">
-                                        <td class="px-4 py-3 font-medium text-gray-900">{{ $item->name }}</td>
-                                        <td class="px-4 py-3 text-center font-bold text-red-600">{{ $item->stock }}</td>
-                                        <td class="px-4 py-3 text-center">
-                                            <a href="{{ route('transactions.create') }}" class="text-blue-600 hover:underline">Restock</a>
-                                        </td>
-                                    </tr>
-                                    @endforeach
-                                </tbody>
-                            </table>
-                        </div>
-                    @else
-                        <div class="flex flex-col items-center justify-center h-40 bg-green-50 rounded-lg border border-green-200">
-                            <span class="text-4xl">✅</span>
-                            <p class="text-green-700 mt-2 font-medium">Semua stok aman!</p>
-                        </div>
-                    @endif
+                            @if (isset($lowStockItems) && $lowStockItems->count() > 0)
+                                <div class="overflow-x-auto">
+                                    <table class="w-full text-sm text-left text-gray-500">
+                                        <thead class="text-xs text-gray-700 uppercase bg-red-50">
+                                            <tr>
+                                                <th class="px-4 py-2">Barang</th>
+                                                <th class="px-4 py-2 text-center">Sisa Stok</th>
+                                                <th class="px-4 py-2 text-center">Aksi</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            @foreach ($lowStockItems as $item)
+                                                <tr class="border-b">
+                                                    <td class="px-4 py-3 font-medium text-gray-900">
+                                                        {{ $item->name }}</td>
+                                                    <td class="px-4 py-3 text-center font-bold text-red-600">
+                                                        {{ $item->stock }}</td>
+                                                    <td class="px-4 py-3 text-center">
+                                                        <a href="{{ route('transactions.create') }}"
+                                                            class="text-blue-600 hover:underline">Restock</a>
+                                                    </td>
+                                                </tr>
+                                            @endforeach
+                                        </tbody>
+                                    </table>
+                                </div>
+                            @else
+                                <div
+                                    class="flex flex-col items-center justify-center h-40 bg-green-50 rounded-lg border border-green-200">
+                                    <span class="text-4xl">✅</span>
+                                    <p class="text-green-700 mt-2 font-medium">Semua stok aman!</p>
+                                </div>
+                            @endif
                 </div>
 
             </div>
@@ -262,4 +295,5 @@
 
     <script src="https://cdn.jsdelivr.net/npm/flowbite@4.0.1/dist/flowbite.min.js"></script>
 </body>
+
 </html>
