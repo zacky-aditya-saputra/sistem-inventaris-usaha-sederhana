@@ -27,7 +27,8 @@
     <aside id="default-sidebar"
         class="fixed top-0 left-0 z-40 w-64 h-full transition-transform -translate-x-full sm:translate-x-0"
         aria-label="Sidebar">
-        <div class="h-full px-3 py-4 overflow-y-auto bg-gray-50 border-r border-gray-200 flex flex-col justify-between shadow-xl">
+        <div
+            class="h-full px-3 py-4 overflow-y-auto bg-gray-50 border-r border-gray-200 flex flex-col justify-between shadow-xl">
 
             <div>
                 <div class="flex flex-col items-center justify-center mb-6 mt-4">
@@ -139,10 +140,10 @@
                         <tr class="bg-purple-300 text-gray-900 uppercase text-sm leading-normal">
                             <th class="py-3 px-6 text-left">Nama Barang</th>
                             <th class="py-3 px-6 text-left">Kategori</th>
+                            <th class="py-3 px-6 text-left">Harga Satuan</th>
                             <th class="py-3 px-6 text-center">Di Gudang</th>
                             <th class="py-3 px-6 text-center">Dipinjam</th>
                             <th class="py-3 px-6 text-center font-bold">Total Aset</th>
-
                             <th class="py-3 px-6 text-center">Aksi</th>
                         </tr>
                     </thead>
@@ -151,12 +152,15 @@
                             <tr class="border-b border-gray-200 hover:bg-gray-100">
                                 <td class="py-3 px-6 text-left whitespace-nowrap font-medium">
                                     {{ $product->name }}
-                                    <div class="text-xs text-gray-400">{{ $product->sku }}</div>
                                 </td>
                                 <td class="py-3 px-6 text-left">
                                     <span class="bg-blue-200 text-blue-700 py-1 px-3 rounded-full text-xs">
                                         {{ $product->category->name }}
                                     </span>
+                                </td>
+
+                                <td class="py-3 px-6 text-left font-medium text-gray-700">
+                                    Rp{{ number_format($product->price, 0, ',', '.') }}
                                 </td>
 
                                 <td class="py-3 px-6 text-center">

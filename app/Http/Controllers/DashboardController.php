@@ -30,9 +30,9 @@ class DashboardController extends Controller
 
         // Transaksi Terakhir (Punya Sendiri)
         $recentTransactions = Transaction::with('product')
-            ->where('user_id', $userId)
+            ->where('user_id', Auth::id())
             ->latest()
-            ->take(5)
+            ->limit(5)
             ->get();
 
         return view('dashboard', compact(

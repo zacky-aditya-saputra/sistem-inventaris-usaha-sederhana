@@ -25,7 +25,8 @@
     <aside id="default-sidebar"
         class="fixed top-0 left-0 z-40 w-64 h-full transition-transform -translate-x-full sm:translate-x-0"
         aria-label="Sidebar">
-        <div class="h-full px-3 py-4 overflow-y-auto bg-gray-50 border-r border-gray-200 flex flex-col justify-between shadow-xl">
+        <div
+            class="h-full px-3 py-4 overflow-y-auto bg-gray-50 border-r border-gray-200 flex flex-col justify-between shadow-xl">
             <div>
                 <div class="flex flex-col items-center justify-center mb-6 mt-4">
                     <img src="{{ asset('logoInventarus.png') }}" alt="Logo Inventarus"
@@ -95,8 +96,12 @@
                         @csrf
                         <a href="{{ route('logout') }}" onclick="event.preventDefault(); this.closest('form').submit();"
                             class="flex items-center p-2 text-gray-900 rounded-lg hover:bg-red-100 hover:text-red-700 group cursor-pointer">
-                            <svg class="w-5 h-5 text-gray-500 transition duration-75 group-hover:text-red-700" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 18 16">
-                               <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 8h11m0 0L8 4m4 4-4 4m4-11h3a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2h-3"/>
+                            <svg class="w-5 h-5 text-gray-500 transition duration-75 group-hover:text-red-700"
+                                aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none"
+                                viewBox="0 0 18 16">
+                                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                                    stroke-width="2"
+                                    d="M1 8h11m0 0L8 4m4 4-4 4m4-11h3a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2h-3" />
                             </svg>
                             <span class="ms-3 whitespace-nowrap">Logout</span>
                         </a>
@@ -146,7 +151,10 @@
 
                                 <td class="py-3 px-6 text-left font-medium text-gray-800">
                                     {{ $t->product->name ?? 'Barang Terhapus' }}
-                                    <div class="text-xs text-gray-400">{{ $t->product->sku ?? '-' }}</div>
+
+                                    <div class="text-xs text-gray-500 italic mt-1">
+                                        {{ Str::limit($t->product->description ?? '-', 40) }}
+                                    </div>
                                 </td>
 
                                 <td class="py-3 px-6 text-center">

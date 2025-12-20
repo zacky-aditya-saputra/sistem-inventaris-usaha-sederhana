@@ -25,8 +25,9 @@ class TransactionController extends Controller
     // Tampilkan Form Transaksi
     public function create()
     {
-        $products = Product::all();
-        return view('transactions.create', compact('products'));
+        $products = Product::where('user_id', Auth::id())->get();
+    
+    return view('transactions.create', compact('products'));
     }
 
     // Simpan Transaksi & Update Stok Otomatis
@@ -46,7 +47,7 @@ class TransactionController extends Controller
 
         // --- SIMPAN TRANSAKSI ---
         Transaction::create([
-            'user_id' => 1,
+            'user_id' => Auth::id(),
             'product_id' => $request->product_id,
             'type' => $request->type, // loan, return, restock, sold
             'quantity' => $request->quantity,

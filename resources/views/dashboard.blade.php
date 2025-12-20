@@ -121,7 +121,7 @@
                 
                 <div class="mt-4 p-4 bg-purple-50 border-l-4 border-purple-500 text-purple-900 rounded-r shadow-sm">
                     <p class="text-sm leading-relaxed">
-                        Terima kasih telah menggunakan <strong>Inventarus</strong> :) Halaman ini (Dashboard) menyajikan ringkasan statistik dan status terkini aset yang Anda miliki. Silakan klik menu di <strong>Sidebar kiri</strong> untuk mengelola Stok Gudang, mengatur Kategori, atau memantau Riwayat Transaksi secara <em>real-time</em>.
+                        Terima kasih telah menggunakan <strong>Inventarus</strong> 🤩. Halaman ini (Dashboard) menyajikan ringkasan statistik dan status terkini aset yang Anda miliki. Silakan klik menu di <strong>Sidebar kiri</strong> untuk mengelola Stok Gudang, mengatur Kategori, atau memantau Riwayat Transaksi secara <em>real-time</em>.
                     </p>
                 </div>
             </div>
